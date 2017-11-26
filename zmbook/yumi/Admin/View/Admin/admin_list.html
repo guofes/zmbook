@@ -1,0 +1,146 @@
+<include file="Public:head"/>
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/admin_list.css">
+<script>
+    $(document).ready(function(){
+    $(".i-del").click(function(){
+        var id =  $(this).parents('tr').children('.id').text();
+       // alert(id);
+       $("#mask").show(10);
+       $("#box").show(100);
+       $("#close").click(function(){
+       $("#mask").hide(0);
+       $("#box").hide(0);
+       });
+       $(".no").click(function(){
+       $("#mask").hide(0);
+       $("#box").hide(0);
+       });
+       $(".sure").click(function(){
+      $.ajax({
+            url:"__CONTROLLER__/admin_del",
+            data:{id:id},
+            dataType:"TEXT",
+            type:"POST",
+            success: function(data){      
+            $("#mask").hide(0);
+            $("#box").hide(0);
+            if(data=="error"){
+              alert("超级管理员不可删除！！！");
+            }
+            else{
+            window.location.href = "{:U("Admin/admin_list")}";               
+            }        
+            }
+        });
+       });
+    });
+    $(".i-edit").click(function(){
+        var wid =  $(this).parents('tr').children('.id').text();
+       $("#mask").show(10);
+       $("#box2").show(100);
+       $("#close2").click(function(){
+       $("#mask").hide(0);
+       $("#box2").hide(0);
+       });
+       $(".editno").click(function(){
+       $("#mask").hide(0);
+       $("#box2").hide(0);
+       });
+       $(".editsure").click(function(){
+      $.ajax({
+            url:"__CONTROLLER__/admin_reset",
+            data:{wid:wid},
+            dataType:"TEXT",
+            type:"POST",
+            success: function(data){   
+            $("#mask").hide(0);
+            $("#box2").hide(0);
+            alert("修改成功！");
+            window.location.href = "{:U("Admin/admin_list")}";         
+            }
+        });
+       });
+    });
+    }); 
+</script>
+<div class="content">
+    <div class="header" id="header">
+        <p>控制台
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>管理员列表
+        </small>
+        </p>
+    </div>
+    <div class="form-button">
+        <div class="button-btn button-href">
+        <a href="{:U("Admin/admin_add")}"><i class="menu-icon fa fa-plus"></i>&nbsp&nbsp添加导师</a>           
+        </div>
+        <div class="button-2">           
+        </div>
+        <div class="button-3">           
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="tutortable" id="tutortable">
+    <table>
+                <thead>
+                    <th># </th>
+                    <th>导师</th>
+                    <th>邮箱</th>
+                    <th>课题组</th>
+                    <th>级别</th>
+                    <th></th>
+                </thead>
+
+             <volist name="data" id="vo" >
+                <tr>
+                    <td class="id">{$vo.id}</td>
+                    <td>{$vo.admin_name}</td>
+                    <td>{$vo.admin_email}</td>
+                    <td>{$vo.project}</td>
+                    <td>{$vo.power}</td>
+                    <td class="drow">
+                    <a href="{:U('Admin/admin_change','','')}/aid/{$vo.id}" title="修改">
+                    <i class="menu-icon fa fa-pencil i-changge" style="color:#0088CC"></i></a>
+                    <i class="menu-icon fa fa-refresh i-edit"></i>
+                    <i class="menu-icon fa fa-close i-del"></i></td>
+                </tr>
+            </volist>
+    </table>
+             <div class="page">
+            <div class="allactivity_page">{$page}</div>
+            </div>   
+    </div>
+</div>
+<div class="footer" id="footer">
+   <p><span>LD•CMF</span> 后台管理系统 © 2016-2017 </p>
+</div>
+
+<div id="mask"></div>
+<div id="box">
+<div class="phead">
+    <p>删除提醒</p>
+</div>
+<div class="delcontent">
+    <i class="ace-icon fa fa-exclamation-triangle fa-3x"></i><span>确定要删除该导师吗？</span>
+</div>
+<div class="delfoot">
+    <button class="sure">确定</button>
+    <button class="no">取消</button>
+</div>
+<div id='close'></div>
+</div>
+
+<div id="box2">
+<div class="phead">
+    <p>重置密码</p>
+</div>
+<div class="editcontent">
+    <i class="ace-icon fa fa-exclamation-triangle fa-3x"></i><span>是否重置该导师密码</span>
+</div>
+<div class="editfoot">
+    <button class="editsure">确定</button>
+    <button class="editno">取消</button>
+</div>
+<div id='close2'></div>
+</div>

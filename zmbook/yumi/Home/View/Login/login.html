@@ -1,0 +1,162 @@
+    <!DOCTYPE html>
+    <html>  
+    <head>
+    <title>登录</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="__PUBLIC__/Home/css/login.css" rel='stylesheet' type='text/css' />
+<link rel="shortcut icon" href="__PUBLIC__/Images/ico.png" type="image/x-icon" />
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    </head>
+    <script type="text/javascript">
+
+    window.onload=function(){
+        var oBtn=document.getElementById("abutton");
+         oBtn.onclick=function(){
+            dis1=document.getElementById("box");
+            dis1.style.display="block";
+
+            dis2=document.getElementById("mask");
+            dis2.style.display="block";
+         }
+         var oBtn=document.getElementById("close");
+         oBtn.onclick=function(){
+            dis1.style.display="none";
+            dis2.style.display="none";
+         }
+    }
+$(document).ready(function(){
+
+    // setInterval(function(){
+    //      location.reload(true);
+    // },1000);
+
+    $('.loginform').submit(function(){
+      if($("input[name='id']").val().length!=13){
+         alert('错误格式的学号!');
+         return false;
+      }
+      if(!$("input[name='password']").val()){
+        alert('请输入密码!');
+         return false;
+      }
+    });
+
+     $('.regform').submit(function(){
+       if(!$("input[name='username']").val()||$("input[name='username']").val().length>4){
+         alert('不合法的姓名!');
+         return false;
+       }
+       if(!$("input[name='tel']").val()){
+         alert('请输入电话!');
+         return false;
+       }
+       if(!$("input[name='email']").val()){
+         alert('请输入邮箱!');
+         return false;
+       }
+       if(!$(".regform input[name='id']").val()){
+         alert('请输入学号!');
+         return false;
+      }
+       if($(".regform input[name='id']").val().length!=13){
+         alert('错误格式的学号!');
+         return false;
+      }
+       if(!$(".regform input[name='password']").val()){
+         alert('请输入密码!');
+         return false;
+       }
+       if($(".regform input[name='password']").val().length<6){
+         alert('密码强度太低!');
+         return false;
+       }
+       if(!$("input[name='repassword']").val()){
+         alert('请确认密码!');
+         return false;
+       }
+       if($(".regform input[name='password']").val()!=$("input[name='repassword']").val()){
+         alert('两次输入的密码不同!');
+         return false;
+       }
+    });
+   });  
+    </script>
+     <!--SIGN UP-->
+  <body>     
+     <h1>华中农业大学玉米温室预定</h1>
+    <div class="login-form">
+            <div class="head-info">
+                <label class="lbl-1"> </label>
+                <label class="lbl-2"> </label>
+                <label class="lbl-3"> </label>
+            </div>
+                <div class="clear"> </div>
+        <div class="avtar">
+            <img src="__PUBLIC__/Images/1.png" />
+        </div>
+                <form class="loginform" method="post" action="__URL__/login">
+                 <input type="text" class="text" name="id" placeholder="学号" >
+                   <div class="key">
+                      <input type="password" name="password" placeholder="密码">
+                  </div>        
+               <div class="signin">
+                      <input type="submit" value="登录">
+              </div>
+              </form>
+    </div>
+     <div class="copy-rights">
+                        <p>如果忘记密码，请联系你的导师 | 没有账号？<a id="abutton">注册</a></p>
+    </div>
+
+    <div id="mask"></div>
+    <div id="box">
+        <div class="box-head">
+        <p>请填写一些基本信息</p>
+        </div>
+    <center><hr width="80%"  align="center"  color="#D0D6D9" size=1;></center>
+            <label class="lbl-1"> </label>
+            <label class="lbl-2"> </label>
+            <label class="lbl-3"> </label>
+        <div class="box-form">
+           <form class="regform" method="post" action="__URL__/reg">
+           <div class="box-form-row">
+            <label for="student_name">姓名:</label><input type="text" name="username"  id="student_name" placeholder="姓名">
+           </div>
+           <div class="box-form-row"> 
+             <label for="student_tel">联系电话:</label> 
+            <input type="text" name="tel" id="student_tel" placeholder="联系方式(电话)">
+           </div> 
+           <div class="box-form-row">
+           <label for="student_email">邮箱:</label>  
+            <input type="email" name="email" id="student_email" placeholder="邮箱">
+           </div>
+          <div class="box-form-row"> 
+            <label for="student_num">学号:</label>   
+            <input type="text" name="id" id="student_num" placeholder="学号">
+          </div> 
+           <div class="box-form-row">
+            <label for="password">密码:</label>   
+            <input type="password" name="password" id="password" placeholder="设置密码">
+           </div>
+           <div class="box-form-row">
+            <label for="repassword">确认密码:</label>   
+            <input type="password"  name="repassword" id="repassword" placeholder="确认密码">
+           </div>
+           <div class="box-form-row">
+            <label for="tutor">导师:</label>   
+            <select name="tutor">
+              <volist name="data" id="vo">
+                <option value="{$vo.admin_name}">{$vo.admin_name}</option>
+              </volist>
+            </select>
+           </div>
+            <input class="submit" type="submit" value="注册"/>
+           </form> 
+        </div>
+           <p class="box-foot">注册成功后请耐心等待导师审核,导师审核通过后账号才有效</p>
+        <div id='close'></div>
+    </div>
+
+    </body>
+    </html>

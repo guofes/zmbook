@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>后台</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="__PUBLIC__/Admin/css/theme.css" rel="stylesheet">   
+ <link rel="stylesheet" type="text/css" href="__PUBLIC__/font-awesome/css/font-awesome.min.css">
+<link rel="shortcut icon" href="__PUBLIC__/Images/admin_ico.png" type="image/x-icon" />
+<script src="__PUBLIC__/Admin/js/jquery.min.js" type="text/javascript"></script>
+<script src="__PUBLIC__/Admin/js/button.js" type="text/javascript"></script>
+</head>
+ 
+<body>
+  <div id="head">
+    <div class="head">
+        <div class="dis-menu">
+         <i class="menu-icon fa fa-bars  fa-lg"></i>
+        </div>      
+          <a class="brand" href="{:U("Index/index")}"><span class="first">玉米</span> <span class="second">&nbsp温室 </span></a>
+          <div class="menu">
+            <li id="fat-menu" class="menu-2">
+              <a href="#" role="button" class="" data-toggle="dropdown">
+              <i class="menu-icon fa fa-user"></i> &nbsp{$_SESSION['admin_name']}&nbsp
+              <i class="menu-icon fa fa-chevron-down"></i>
+            </a></li>
+            <li class="menu-1"><a href="#" role="button">Settings</a></li>
+          </div>    
+    </div>
+    <div class="manager">
+          <a class="a-1" href="{:U("Admin/admin")}">个人中心</a>  
+          <a class="a-2" href="{:U("Login/logout")}">安全退出</a>
+    </div>
+  </div>
+    
+</body>
+</html>
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/admin_list.css">
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/use.css">
+<script src="__PUBLIC__/Admin/js/use.js"></script>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<div class="total">
+  <div class="yumi1" type="fixed">
+  <p class="headname">玉米地I</p>
+  <div class='landinfo' style="top:50px">
+     <p>责任老师:代明球</p>
+     <table class="landinfo_table">
+     <tr>
+        <th>使用人</th>
+        <th>课题组</th>
+        <th>开始时间</th>
+        <th>结束时间</th>
+     </tr>
+     <volist name="corn" id='corn_vo'>
+       <if condition="$corn_vo.corn eq 1">
+        <tr>
+           <td>{$corn_vo.user}</td>
+           <td>{$corn_vo.project}</td>
+           <td>{$corn_vo.date1}</td>
+           <td>{$corn_vo.date2}</td>
+        </tr>
+      </if>
+     </volist>  
+     </table> 
+  </div>
+  </div>
+   <div class="electric-box">
+       <div class="electric">
+           <p>电</p>
+       </div>
+   </div> 
+    <div class="content-box">
+       <table class="table1">
+        <tr>
+            <td style="width:80px;height:60px;background:#17375E;"
+            class="fixed" type="fixed">
+                <p>暖</p>
+                <div class='landinfo'>
+                 <p>责任老师:代明球</p>
+               </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:100px;height:100px;background:#17375E;" class="fixed" type="fixed" >
+               <p>棚2</p>
+               <div class='landinfo'>
+                 <p>责任老师:代明球</p>
+                 <p>使用课题组:玉米团队</p>
+              </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:100px;height:50px;background:#17375E;" class="fixed" type="fixed">
+               <p>房5</p>
+               <div class='landinfo'>
+                 <p>责任老师:杨芳</p>
+                 <p>使用课题组:<br/>
+                    杨芳组<br/>
+                    张东方组
+                 </p>
+               </div>
+            </td>
+        </tr>
+        <tr>
+            <td  style="width:100px;height:50px;background:#17375E;" class="fixed" type="fixed">
+               <p>房4</p>
+               <div class='landinfo'>
+                 <p>责任老师:赖志兵</p>
+                 <p>使用课题组:<br/>
+                    代明球组<br/>
+                    赖志兵组<br/>
+                    岳兵组
+                 </p>
+               </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:100px;height:150px;background:#359D3E;" index="1" choose="0"><p>晒场</p></td>
+        </tr>
+
+    </table>
+    <!-- ①②③④⑤⑥⑦⑧⑨⑩ -->
+    <table class="table2">
+        <caption>加温温室</caption>
+        <tr>
+            <td>
+            <div class="caption">1号</div>
+            <table class="table2-child" cellspacing="0">             
+              <td index="2"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="3"><p>②</p></td>
+            </table>
+            </td>
+
+            <td>
+            <div class="caption">2号</div>
+            <table class="table2-child" cellspacing="0">
+              <td index="4"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="5"><p>②</p></td>
+            </table>
+            </td>
+
+            <td>
+            <div class="caption">3号</div>
+            <table class="table2-child" cellspacing="0">
+              <td index="6"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="7"><p>②</p></td>
+            </table>
+            </td>
+
+            <td>
+            <div class="caption">4号</div>
+            <table class="table2-child" cellspacing="0">
+              <td index="8"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="9"><p>②</p></td>
+            </table>
+            </td>
+
+            <td>
+            <div class="caption">5号</div>
+            <table class="table2-child" cellspacing="0">
+              <td index="10"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="11"><p>②</p></td>
+            </table>
+            </td>
+
+            <td>
+            <div class="caption">6号</div>
+            <table class="table2-child" cellspacing="0">
+              <td index="12"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="13"><p>②</p></td>
+            </table>
+            </td>
+
+            <td>
+            <div class="caption">7号</div>
+            <table class="table2-child" cellspacing="0">
+              <td index="14"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="15"><p>②</p></td>
+            </table>
+            </td>
+
+            <td>
+            <div class="caption">8号</div>
+            <table class="table2-child" cellspacing="0">
+              <td index="16"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="17"><p>②</p></td>
+            </table>
+            </td>
+       </tr>     
+    </table>
+
+    <table class="table3">
+        <caption>干旱温棚</caption>
+        <tr>
+            <td style="width:120px;height:80px;" index="18"><p>A</p></td>
+            <td style="width:120px;height:80px;" index="19"><p>B</p></td>
+            <td style="width:70px;height:80px;background:#17375E;" type="fixed"></td>
+            <td style="width:160px;height:80px;" index="20"><p>E</p></td>
+            <td style="width:160px;height:80px;" index="21"><p>G</p></td>
+        </tr>
+        <tr>
+            <td style="width:130px;height:80px;" index="22"><p>C</p></td>
+            <td style="width:120px;height:80px;" index="23"><p>D</p></td>
+            <td style="width:70px;height:80px;background:#17375E;" type="fixed"></td>
+            <td style="width:160px;height:80px;" index="24"><p>F</p></td>
+            <td style="width:160px;height:80px;" index="25"><p>H</p></td>
+        </tr>
+    </table>
+    
+    <table class="table4">
+        <caption>日光温棚</caption>
+        <tr>
+            <td style="width:160px;height:160px;" >
+              <div class="caption">1区</div>
+            <table class="table2-child" cellspacing="1">
+              <td index="27"><p>①</p></td>
+              <td index="28"><p>②</p></td>
+            </table>
+            <table class="table2-child" cellspacing="1">
+              <td index="29"><p>③</p></td>
+              <td index="30"><p>④</p></td>
+            </table>
+            </td>
+            <td style="width:160px;height:160px;">
+              <div class="caption">2区</div>
+            <table class="table2-child" cellspacing="1">
+              <td index="31"><p>①</p></td>
+              <td index="32"><p>②</p></td>
+            </table>
+            <table class="table2-child" cellspacing="1">
+              <td index="33"><p>③</p></td>
+              <td index="34"><p>④</p></td>
+            </table>
+            </td>
+            <td style="width:160px;height:160px;">
+              <div class="caption">3区</div>
+            <table class="table2-child" cellspacing="1">
+              <td index="35"><p>①</p></td>
+              <td index="36"><p>②</p></td>
+            </table>
+            <table class="table2-child" cellspacing="1">
+              <td index="37"><p>③</p></td>
+              <td index="38"><p>④</p></td>
+            </table>
+            </td>
+            <td style="width:160px;height:160px;">
+              <div class="caption">4区</div>
+            <table class="table2-child" cellspacing="1">
+              <td index="39"><p>①</p></td>
+              <td index="40"><p>②</p></td>
+            </table>
+            <table class="table2-child" cellspacing="1">
+              <td index="41"><p>③</p></td>
+              <td index="42"><p>④</p></td>
+            </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="height:50px;background:#17375E;" colspan="4" type="fixed"><p>过道（可适当利用）</p></td>
+        </tr>
+        <tr>
+            <td style="width:160px;height:240px;">
+              <div class="caption">5区</div>
+            <table class="table3-child" cellspacing="1">
+              <td index="43"><p>①</p></td>
+              <td index="44"><p>②</p></td>
+            </table>
+            <table class="table3-child" cellspacing="1">
+              <td index="45"><p>③</p></td>
+              <td index="46"><p>④</p></td>
+            </table>
+            </td>
+
+            <td style="width:160px;height:240px;">
+            <div class="caption">6区</div>
+            <table class="table3-child" cellspacing="1">
+              <td index="47"><p>①</p></td>
+              <td index="48"><p>②</p></td>
+            </table>
+            <table class="table3-child" cellspacing="1">
+              <td index="49"><p>③</p></td>
+              <td index="50"><p>④</p></td>
+            </table>
+            </td>
+
+            <td style="width:160px;height:240px;">
+            <div class="caption">7区</div>
+            <table class="table3-child" cellspacing="1">
+              <td index="51"><p>①</p></td>
+              <td index="52"><p>②</p></td>
+            </table>
+            <table class="table3-child" cellspacing="1">
+              <td index="53"><p>③</p></td>
+              <td index="54"><p>④</p></td>
+            </table>
+            </td>
+
+            <td style="width:160px;height:240px;">
+            <div class="caption">8区</div>
+            <table class="table3-child" cellspacing="1">
+              <td index="55"><p>①</p></td>
+              <td index="56"><p>②</p></td>
+            </table>
+            <table class="table3-child" cellspacing="1">
+              <td index="57"><p>③</p></td>
+              <td index="58"><p>④</p></td>
+            </table>
+            </td>
+            </td>
+        </tr>
+    </table>
+
+    <table class="table5">
+        <tr>
+            <td style="width:50px;height:100px;" colspan="2" index="26"><p>棚1</p></td>
+        </tr>
+        <tr>
+            <td style="width:50px;height:50px;background:#17375E" colspan="2" class="fixed" type="fixed">
+             <p>门卫3</p>
+             <div class='landinfo'>
+                 <p>责任人:门卫</p>
+             </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50px;height:50px;background:#17375E" colspan="2" class="fixed" type="fixed">
+              <p>房2</p>
+              <div class='landinfo'>
+                 <p>责任老师:邱法展</p>
+                 <p>使用课题组:<br/>
+                    邱法展组<br/>
+                    张祖新组
+                 </p>
+               </div>
+            </td>
+        </tr>
+        <tr>
+            <td  style="width:50px;height:50px;background:#17375E" colspan="2" class="fixed" type="fixed">
+              <p>房1</p>
+              <div class='landinfo'>
+                 <p>责任老师:严建兵</p>
+                 <p>使用课题组:<br/>
+                    严建兵组<br/>
+                    李林组<br/>
+                    李青组
+                 </p>
+               </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50px;height:50px;background:#17375E" class="fixed" type="fixed">
+             <p>房1</p>
+             <div class='landinfo'>
+                 <p>责任老师:严建兵</p>
+                 <p>使用课题组:<br/>
+                    严建兵组<br/>
+                    李林组<br/>
+                    李青组
+                 </p>
+               </div>
+            </td>
+            <td style="width:50px;height:50px;background:#17375E" class="fixed" type="fixed">
+              <p>厕所</p>
+              <div class='landinfo'>
+                 <p>责任人:门卫</p>
+               </div>
+            </td>
+        </tr>
+
+    </table> 
+    </div>
+    <div class="yumi2" type="fixed">
+        <p class="footname">玉米地II</p>
+         <div class='landinfo'>
+           <p>责任老师:代明球</p>
+           <table class="landinfo_table">
+           <tr>
+              <th>使用人</th>
+              <th>课题组</th>
+              <th>开始时间</th>
+              <th>结束时间</th>
+           </tr>
+           <volist name="corn" id='corn_vo'>
+             <if condition="$corn_vo.corn eq 2">
+              <tr>
+                 <td>{$corn_vo.user}</td>
+                 <td>{$corn_vo.project}</td>
+                 <td>{$corn_vo.date1}</td>
+                 <td>{$corn_vo.date2}</td>
+              </tr>
+            </if>
+           </volist>  
+           </table> 
+         </div>
+    </div>
+</div>
+<input class="ajax_href" type="hidden" value="{:U('Use/placeState')}"/>

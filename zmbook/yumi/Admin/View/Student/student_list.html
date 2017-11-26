@@ -1,0 +1,181 @@
+<include file="Public:head"/> 
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/admin_list.css">
+<script>
+    $(document).ready(function(){
+    $(".i-del").click(function(){
+        var id =  $(this).parents('tr').children('.id').text();
+       $("#mask").show(10);
+       $("#box").show(100);
+       $("#close").click(function(){
+       $("#mask").hide(0);
+       $("#box").hide(0);
+       });
+       $(".no").click(function(){
+       $("#mask").hide(0);
+       $("#box").hide(0);
+       });
+       $(".sure").click(function(){
+      $.ajax({
+            url:"__CONTROLLER__/student_del",
+            data:{id:id},
+            dataType:"TEXT",
+            type:"POST",
+            success: function(data){      
+            $("#mask").hide(0);
+            $("#box").hide(0);
+            window.location.href = "{:U("Student/student_list")}";         
+            }
+        });
+       });
+    });
+    $(".i-edit").click(function(){
+        var sid =  $(this).parents('tr').children('.id').text();
+       $("#mask").show(10);
+       $("#box2").show(100);
+       $("#close2").click(function(){
+       $("#mask").hide(0);
+       $("#box2").hide(0);
+       });
+       $(".editno").click(function(){
+       $("#mask").hide(0);
+       $("#box2").hide(0);
+       });
+       $(".editsure").click(function(){
+      $.ajax({
+            url:"__CONTROLLER__/student_reset",
+            data:{sid:sid},
+            dataType:"TEXT",
+            type:"POST",
+            success: function(data){   
+            $("#mask").hide(0);
+            $("#box2").hide(0);
+            window.location.href = "{:U("student/student_list")}";         
+            }
+        });
+       });
+    });
+
+$(".activation").click(function(){
+  // $(this).animate({background:'250px'});
+  // // alert(222);
+  var qwe = $(this).children('.activationn');
+  var stuid = $(this).parents('tr').children('.id').text();
+   // var level = $(this).children().children('.level').text();
+    // alert(qwe);
+   // if(level==1){
+   //  $(this)
+   // }  
+   $.ajax({
+            url:"__CONTROLLER__/student_activation",
+            data:{stuid:stuid},
+            dataType:"TEXT",
+            type:"POST",
+            success: function(data){
+            if(data==1){
+            qwe.css("background","#f8f8f8");
+            }  
+            if(data==2){
+            qwe.css("background","#0088CC");
+            }      
+            }
+        });
+     }); 
+  
+}); 
+  
+</script>
+<div class="content">
+    <div class="header" id="header">
+        <p>管理员
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>学生列表
+        </small>
+        </p>
+    </div>
+    <div class="form-button">
+        <div class="button-btn button-href">
+        <p class="btn-p"><i class="menu-icon fa fa-question-circle"></i>&nbsp&nbsp页面说明</p>           
+        </div>
+        <div class="button-2">           
+        </div>
+        <div class="button-3">           
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="tutortable" id="tutortable">
+    <table>
+                <thead>
+                    <th>学生</th>
+                    <th>学号</th>
+                    <th>导师</th>
+                    <th>电话</th>
+                    <th>邮箱</th>
+                    <th>激活</th>
+                    <th></th>
+                </thead>
+                <volist name="data" id="a">
+                <tr>
+                    <td>{$a.username}</td>
+                    <td class="id">{$a.id}</td>
+                    <td>{$a.tutor}</td>
+                    <td>{$a.tel}</td>
+                    <td>{$a.email}</td>
+                    <td>
+                    <div class="activation">
+                    <div class="activationn {$a.id}">
+                    <span class="level" style="display:none">{$a.level}</span>
+                    </div>
+                    <script>
+                       if({$a.level}==1){
+                       $(".{$a.id}").css("background","#f8f8f8");
+                      }
+                      </script> 
+                     </div>
+                      </td>
+                    <td  class="drow"><i class="menu-icon fa fa-refresh i-edit"></i>
+                    <i class="menu-icon fa fa-close i-del"></i></td>
+                </tr>
+             </volist>   
+    </table>
+            <div class="page">
+            <div class="allactivity_page">{$page}</div>
+            </div> 
+    </div>
+</div>
+<div class="footer" id="footer">
+   <p><span>LD•CMF</span> 后台管理系统 © 2016-2017 </p>
+</div>
+
+
+<div id="mask"></div>
+<div id="box">
+<div class="phead">
+    <p>删除提醒</p>
+</div>
+<div class="delcontent">
+    <i class="ace-icon fa fa-exclamation-triangle fa-3x"></i><span>确定要删除该学生吗？</span>
+</div>
+<div class="delfoot">
+    <button class="sure">确定</button>
+    <button class="no">取消</button>
+</div>
+<div id='close'></div>
+</div>
+
+<div id="box2">
+<div class="phead">
+    <p>重置密码</p>
+</div>
+<div class="editcontent">
+    <i class="ace-icon fa fa-exclamation-triangle fa-3x"></i><span>是否重置该学生密码</span>
+</div>
+<div class="editfoot">
+    <button class="editsure">确定</button>
+    <button class="editno">取消</button>
+</div>
+<div id='close2'></div>
+</div>
+<div id="explain">
+   <span class="explain_close"><i class="menu-icon fa fa-close"></i></span>
+    <p>通过审核后学生账号才有效，学生密码重置为学生的学号</p>
+</div>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>玉米温室</title>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/student.css">
+<link rel="shortcut icon" href="__PUBLIC__/Images/ico.png" type="image/x-icon" />
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script type="text/javascript">
+	 $(document).ready(function(){
+
+	 	$(".form_state").each(function(){
+          var $state=$(this).text();
+          var $needclear=$(this).siblings(".form_needclear").text();
+          // var $endtime=$(this).parent().siblings().children('.form_endtime').text();
+          // var $enddate = new Date(Date.parse($endtime.replace(/-/g, "/")));
+          // var $nowdate = new Date();
+          if($state==0){
+          	 $(this).text("等待导师审核");
+          }
+          if($state==1){
+          	 $(this).text("等待管理员审核");
+          	 $(this).css('color','blue');
+          }
+          if($state==2){
+           	$(this).text("通过审核,可以使用");
+           	$(this).css('color','red');
+            if($needclear == true){
+                $(this).replaceWith("<a id='clear_a' title='点我确认清场'>点我确认清场!&nbsp</a>");
+            }
+          }
+          if($state==3){
+            $(this).text("已经到期");
+            $(this).css('color','black');
+          } 
+       }); 
+
+        $(".form_content").each(function(){
+           $(this).attr('title',$(this).text());
+        });
+    $(".changepassword").click(function(){
+          $("#mask").css("display","block");
+          $("#box").css("display","block");
+    });
+    $("#close").click(function(){
+          $("#mask").css("display","none");
+          $("#box").css("display","none");
+    });  
+
+     $("form").submit(function(){
+         if($("input[name='password']").val().length==0||$("input[name='newpassword']").val().length==0||$("input[name='repassword']").val().length==0){
+             alert("你还有字段没有填写!");
+             return false;
+         }
+         else if($("input[name='newpassword']").val().length<6){
+               alert("密码强度过低(6位以上)!");
+               return false;
+         }
+         else if($("input[name='newpassword']").val()!=$("input[name='repassword']").val()){
+          alert("两次输入的密码不一致!");
+          return false;
+         }
+         else{
+          return true;
+         }
+     });
+           
+     $("#clear_a").click(function(){
+         $this = $(this);
+         if(confirm("您已经将实验室打扫干净并做好一切清场措施?")){
+               $.post('clear',{id:$this.siblings('.form_id').text()},function(data){
+                  alert(data);
+             window.location.href = "{:U("Student/student")}";
+
+               });
+          }
+     });
+
+	 });
+</script>
+</head>
+<body>
+    <assign name="user" value="$Think.session.username"/>
+	<h1>个人中心</h1>
+	<h2>{$user}同学,在这里查看你的提交信息!</h2>
+	<h3><a href="{:U('Index/index')}">返回预定系统</a><a href="{:U('Index/logout')}">退出登录</a><a class="changepassword">修改密码</a></h3>
+	<img class="left-img" src="__PUBLIC__/images/yumi2-1.png" />
+	<img class="right-img" src="__PUBLIC__/images/yumi2.png" />
+	<div class="info">
+	   <table>
+	    <thead>
+	    	<th><p>姓名</p></th>
+	    	<th><p>提交时间</p></th>
+	    	<th><p>土地名称</p></th>
+	    	<th><p>描述</p></th>
+	    	<th><p>开始时间</p></th>
+	    	<th><p>结束时间</p></th>
+	    	<th><p>状态</p></th>
+	    </thead>
+        <volist name="data" id='vo'>
+          <tr>
+             <td><p style="width:100px;">{$vo.booking_student}</p></td>
+             <td><p style="width:120px;">{$vo.sub_time}</p></td>
+             <td><p style="width:110px;">{$vo.landname}</p></td>
+             <td><p class="form_content" style="width:300px;">{$vo.content}</p></td>
+             <td><p style="width:120px;">{$vo.book_time}</p></td>
+             <td><p class="form_endtime" style="width:120px;">{$vo.end_time}</p></td>
+             <td><p class="form_state" style="width:200px;">{$vo.form_state}</p><p class="form_needclear" style="display: none;">{$vo.needclear}</p><p class="form_id" style="display: none;">{$vo.id}</p>
+             </td>
+          </tr>
+        </volist>
+      </table>  
+	</div><!-- info -->
+	<div class="footer">
+	   <h3>华中农业大学玉米温室预定系统</h3>
+	</div>
+
+  <div id="mask"></div>
+    <div id="box">
+       <h3>姓名:{$user}</h3>
+          <form action="{:U('Student/changepassword')}" method="post">
+           <div class="box-form-row">
+            <label for="password">当前密码:</label>   
+            <input type="password" name="password" id="password" placeholder="当前密码">
+           </div>
+           <div class="box-form-row">
+            <label for="password">密码:</label>   
+            <input type="password" name="newpassword" id="newpassword" placeholder="修改密码">
+           </div>
+           <div class="box-form-row">
+            <label for="repassword">确认密码:</label>   
+            <input type="password"  name="repassword" id="repassword" placeholder="确认密码">
+           </div>
+           <div class="box-button-row">
+           <input class="submit" type="submit" value="提交"></input>
+           <a id="close">取消</a>
+           </div>
+         </form>  
+    </div>
+</body>
+</html>

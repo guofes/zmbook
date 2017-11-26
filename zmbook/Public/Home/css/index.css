@@ -1,0 +1,445 @@
+*{
+    margin:0;
+    padding:0;
+}
+.container{
+    width: 1366px;
+}
+@media screen and (min-width: 1366px) {
+   .container{
+    width: 100%;
+}
+}
+.h1{
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-family: 微软雅黑;
+}
+.h2{
+    margin:0 auto;
+}
+.h3{
+   position: absolute;
+   top:10px;
+   right: 20px;
+   font-size: 20px;
+}
+.h3 a{
+    background-color: rgb(141,215,219);
+    color:#222222;
+    width: 100px;
+    text-decoration: none;
+    padding:5px 20px 5px 20px;
+}
+p{
+    color:#eee;
+    font-weight: 800;
+}
+body{
+    position: relative;
+    width:100%;
+    padding:0px;
+    text-align: center;
+    background: url('../../Images/bg4.jpg');
+}
+/*____________________________________________*/
+.loading {
+  display: table;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  z-index: 99;
+}
+
+.loading .progress {
+  font-size: 40px;
+  font-family: 微软雅黑;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+/*___________________________loading_____________*/
+.info{
+    float: left;
+    margin-left: 30px;
+}
+.right-info{
+    float: right;
+}
+.state0{
+    margin-left: 40px;
+    margin-top: 10px;
+    width: 50px;
+    height:50px;
+    background-color: #359D3E;
+}
+.state1{
+    margin-left: 40px;
+    margin-top: 10px;
+    width: 50px;
+    height:50px;
+    background-color:rgb(44,130,201);
+}
+.state2{
+    margin-left: 40px;
+    margin-top: 10px;
+    width: 50px;
+    height:50px;
+    background-color:#FF0000;
+}
+.info p{
+   color: black;
+}
+/*___________________________*/
+.rightmarquee{
+    float: right;
+    width: 200px;
+    height: 400px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.rules{
+    float: right;   
+    width: 150px;
+    height: 300px;
+}
+.news{
+   float: right;
+    width: 150px;
+    height: 50px; 
+    margin-top: 20px;
+}
+.news h3{
+    color: red;
+}
+.rules h3{
+    color: red;
+}
+.rules p{
+    font-family: 微软雅黑;
+    color:#333;
+    letter-spacing: 2px;
+    font-size: 16px;
+}
+/*_________________________________*/
+.left-img{
+    position: absolute;
+    width: 200px;
+    height: 400px;
+    left: 10px;
+    bottom: 100px;
+}
+.right-img{
+    position: absolute;
+    width: 200px;
+    height: 400px;
+    right: 10px;
+    bottom: 100px;
+}
+.total{
+    margin: 0px auto;
+    width: 980px;
+    background:rgba(255,255,255,0.5);
+    border:1px solid #0D0D0D;
+}
+.head{
+    position: relative;
+    background:#359D3E;
+    width: 900px;
+    height: 300px;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+.headname{
+    height: 30px;
+    position: absolute;
+    margin: auto;  
+    top: 0; left: 0; bottom: 0; right: 0; 
+    font-size:30px;
+    font-color:#eee;
+}
+.electric-box{
+    position: absolute;
+    top:220px;
+    background:white;
+    width: 100px;
+    height: 120px;
+}
+.electric-box .electric{
+    background: #17375E;
+    width: 80px;
+    height: 100px; 
+    margin:10px auto;
+}
+.electric-box .electric p{
+    font-size:20px;
+    padding-top: 40px;
+}
+.content-box{
+    margin-top: 40px;
+    width: 940px;
+    height:1000px;
+}
+
+/*四个表格的样式*/
+.caption{
+    background: #cccCFF;
+    line-height: 30px; 
+    color: #666;
+    font-family: 微软雅黑;
+    font-size:20px;
+    font-weight: 700;
+    letter-spacing: 3px
+}
+.content-box table{
+    table-layout: fixed;
+}
+.content-box .table1{
+    display: block;
+    float: left;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.content-box .table2{
+    display:block;
+    float:right;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+.table2 td{
+    width: 80px;
+    height: 160px;
+}
+.table2 caption{
+    background: #cccCFF;
+    line-height: 30px; 
+    color: #666;
+    font-family: 微软雅黑;
+    font-size:20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+.table2-child td{
+    width: 80px;
+    height: 80px;
+    border-top: 1px solid #666;
+}
+.content-box .table3{
+    float:right;
+    margin-top: 100px;
+    margin-right: 20px;
+}
+
+.content-box .table3 caption{
+    background: #cccCFF;
+    line-height: 30px;
+    font-family: 微软雅黑;
+    font-size:20px;
+    letter-spacing: 1px;
+    color: #666;
+    font-weight: 600;
+}
+
+.table3-child td{
+   width:80px;
+   height:120px;
+   border-top: 1px solid #666;
+}
+
+.content-box .table4{
+    display: block;
+    float:right;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.table4 caption{
+    background: #cccCFF;
+    line-height: 30px;
+    color: #666;
+    font-family: 微软雅黑;
+    font-size:20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+.content-box .table5{
+    display: block;
+    float:left;
+    padding-top: 100px;
+    padding-left: 20px;
+}
+
+.total .footer{
+    position: relative;
+    margin-top: 140px;
+    margin-bottom: 80px;
+    margin-left: 270px;
+    width: 650px;
+    height: 300px;
+    background-color: #359D3E;
+}
+.footname{
+    height: 30px;
+    position: absolute;
+    margin: auto;  
+    top: 0; left: 0; bottom: 0; right: 0; 
+    font-size:30px;
+    font-color:#eee;
+}
+
+td{
+    cursor: pointer;
+}
+
+.formSubmit{
+    width:980px;
+    margin:10px auto;
+    height: 580px;
+    border:1px solid black;
+    background:rgba(255,255,255,0.5);
+}
+
+.form-item{
+    text-align: left;
+    width: 100%;
+    float: left;
+    margin-left: 60px;
+    margin-top: 40px;
+}
+
+.formSubmit form div p:first-child{
+    color: black;
+    font-family: 微软雅黑;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    float: left;
+}
+.formhead p{
+    margin-top: 10px;
+    color: black;
+    font-family: 微软雅黑;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 6px;
+}
+
+ .bechoose {
+    color:rgb(44,130,201);
+    margin-left: 20px;
+    float: left;
+    font-family: 微软雅黑;
+    font-size: 20px;
+}
+
+button{
+    margin-top:40px;
+    width: 150px;
+    height: 40px;
+    background-color: rgb(44,130,201);
+    color: white;
+    font-family: 微软雅黑;
+    font-size: 20px;
+    letter-spacing: 3px;
+    border:1px solid rgb(44,130,201);
+    cursor: pointer;
+}
+
+.taskinput{
+    float: left;
+    height: 26px;
+    width: 200px;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.timeinput{
+  float: left;
+  height: 26px;
+  width: 200px;
+  font-size: 20px;
+}
+.datepicker{
+   width:200px;
+   float: left;
+   margin-left: 20px;
+}
+
+.form-item .project{
+    margin-left: 10px;
+}
+
+.form-item .form-money{
+   font-family: 微软雅黑;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: red; 
+    float: left;
+    margin-left: 10px;
+}
+
+.form-item textarea{
+    width: 500px;
+    height:100px;
+    margin-left: 20px;
+    font-family: 微软雅黑;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+.landinfo{
+    position:absolute;
+    width:250px;
+    background-color: #4d5b76;
+    font-family: 微软雅黑;
+    font-size: 16px;
+    z-index: 999;
+    display: none;
+    word-wrap:break-word; 
+    border: 1px solid #f4f4f4;
+}
+.head .landinfo{
+     right: 0px;
+     width:450px;
+}
+.fixed .landinfo p{
+    font-size: 16px;
+    color: #eee;
+    margin-top:10px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+.landinfo .teacher_name{
+     margin-top:5px;
+    margin-bottom: 5px;
+}  
+.infonum p{
+    font-size: 14px;
+    color: #eee;
+}
+.landinfo div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.landinfo_table{
+     margin:5px auto;
+}
+.landinfo_table th{
+     color:#ccc;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.landinfo_table td{
+    padding-left: 10px;
+}
+
+.footer .landinfo{
+     right: 0px;
+     width:450px;
+}

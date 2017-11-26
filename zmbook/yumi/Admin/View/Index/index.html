@@ -1,0 +1,99 @@
+﻿<include file="Public:head"/>
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/index.css">
+    <div class="header" id="header">
+        <p>控制台
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>首页
+        </small>
+        </p>
+    </div>
+<div class="content" id="content">
+
+    <div class="alert" id="alert">
+        <p><strong>欢迎使用本系统：</strong>祝您生活愉快<i class="ace-icon fa fa-close"></i></p>
+    </div>
+    <div class="clear"></div>
+    <div class="count" id="count">
+        <div class="count-head grahead">
+            <p>数据详情</p>
+        </div>
+        <div class="count-content">       
+                <assign name="data">
+            <div class="count-content-count">
+                <h2>{$data.2}</h2> 
+                <p>正使用温棚</p>
+            </div>
+            <div class="count-content-count">
+                <h2>{$data.1}</h2>
+                <p>待审核温棚</p>                
+            </div>
+            <div class="count-content-count">
+                <h2>{$data.0}</h2>
+                <p>空闲温棚</p>
+            </div>
+            <div class="count-content-count">
+                <h2>{$data.3}</h2>
+                <p>学生总数</p>
+            </div>
+            <div class="count-content-count">
+                <h2>￥300</h2>
+                <p>费用</p>
+            </div>
+            </assign>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="greenhouse" id="greenhouse">
+        <div class="greenhouse-head grahead">
+            <p>场地明细<span>+{$data.4}</span></p>
+        </div>
+        <div class="greenhouse-content">
+        <div class="box-table">
+            <table>
+                <thead>
+                    <th>
+                       温棚编号
+                    </th>
+                    <th>
+                        使用人
+                    </th>
+                    <th>
+                        课题组
+                    </th>
+                </thead>
+                <volist name="da" id="a">
+                <tr>
+                    <td>{$a.landname}</td>
+                    <td>{$a.booking_student}</td>
+                    <td>{$a.project}</td>
+                </tr>
+                </volist>
+            </table>
+            </div>
+           <a href="{:U("Use/index")}">更多...</a>
+        </div>
+    </div>
+    <div class="system-description" id="system-description">
+        <div class="system-description-head grahead">
+            <p>系统说明</p>
+        </div> 
+        <div class="system-description-content system-1">
+            <h1>系统信息</h1>
+            <p>本系统由郭峰，黄穗宇开发，版权归华中农业大学信息学院<span>零度工作室</span>所有，
+            如果您在使用过程中遇到什么问题，或者出现漏洞、错误，请联系我们。</p>
+        <hr>
+            <h1>开发团队</h1>
+    <p>郭&nbsp&nbsp&nbsp峰:{<i class="ace-icon fa fa-envelope"></i>：964534239@qq.com}</p>
+    <p>黄穗宇:{<i class="ace-icon fa fa-envelope"></i>：937634115@qq.com}</p>
+        </div>
+        <div class="system-description-content system-2">
+            <h1>使用说明</h1>
+            <p>本系统所有功能请参考左侧菜单，点击菜单将进入对应的管理页面。</p>
+            <p>本系统实行分级管理，导师分为<span>超级管理员</span>、普通管理员。不同等级的导师可以使用的功能有所不同。超级管理员唯一，可以进入“导师列表”页面，查看具体的导师信息。并对导师进行操作</p>
+        </div>      
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="footer" id="footer">
+   <p><span>LD•CMF</span> 后台管理系统 © 2016-2017 </p>
+</div>

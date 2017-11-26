@@ -1,0 +1,171 @@
+/*可关闭的提示div*/
+.content .alert{
+    float: left;
+    height: 40px;
+    width: 100%;
+    /*margin:10px 20px 20px 20px;*/
+    border: 1px solid #85c5e5;
+    background: #afd9ee;
+    background: -webkit-gradient(linear, 0 100%, 0 0, from(#afd9ee), to(#d9edf7));
+    background: -webkit-linear-gradient(bottom, #afd9ee, #d9edf7);
+    background: -moz-linear-gradient(bottom, #afd9ee, #d9edf7);
+    background: -o-linear-gradient(bottom, #afd9ee, #d9edf7);
+    background: linear-gradient(bottom, #afd9ee, #d9edf7);
+    filter: progid:dximagetransform.microsoft.gradient(startColorStr='#d9edf7', EndColorStr='#afd9ee');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#d9edf7',EndColorStr='#afd9ee')";
+}
+.content .alert p{
+    color:#3A87AD;
+    font-size: 14px;
+    line-height: 40px;
+    padding-left:20px; 
+} 
+.content .alert p i{
+    display: block;
+    float: right;
+    line-height: 40px;
+    margin-right: 15px;
+    opacity: 0.5;
+}
+.content .alert p i:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+/*--可关闭的提示div--*/
+/*下面div的头部*/
+.content .grahead{
+    height: 40px;
+    /*width:100%;*/
+    background: #dddddd;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #dddddd), color-stop(1, #fafafa));
+    background: -ms-linear-gradient(bottom, #dddddd, #fafafa);
+    background: -moz-linear-gradient(center bottom, #dddddd 0%, #fafafa 100%);
+    background: -o-linear-gradient(bottom, #dddddd, #fafafa);
+    filter: progid:dximagetransform.microsoft.gradient(startColorStr='#4d5b76', EndColorStr='#6c7a95');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa',EndColorStr='#dddddd')";
+    border-bottom: 1px solid #A6A6A6;
+}
+.content .grahead{
+    width: 100%;
+    color: #505050;
+    cursor: pointer;
+}
+.content .grahead p{
+    line-height: 40px;
+    margin-left:20px;
+    font-size: 14px; 
+}
+/*--下面div的头部--*/
+/*数据详情*/
+.content .count{
+    float: left;
+    width:100%;
+    margin-top: 30px;
+    /*margin:10px 20px 0px 20px;*/
+    border: 1px solid #CCCCCC;
+}
+.content .count .count-content{
+    height: 120px;
+    width: 100%;
+}
+.content .count .count-content .count-content-count{
+    float: left;
+    border:none;
+    width: 20%;
+    height: 100%;
+}
+.content .count .count-content .count-content-count h2{
+    line-height:70px;
+    font-size: 2em;
+    text-align: center;
+    color: #999;
+    font-weight: bold;
+}
+.content .count .count-content .count-content-count  p{
+    line-height: 30px;
+    text-align: center;
+    font-size: 1.2em;
+    color:#555;
+}
+/*--数据详情--*/
+/*场地明细*/
+.content .greenhouse{
+    border: 1px solid #CCCCCC;
+    float: left;
+    width:48%;
+    margin-top: 20px;
+    /*margin:20px 20px 0px 20px;*/
+}
+.content .greenhouse .greenhouse-head p span{    
+  display: block;
+  width:18px;
+  height:18px;
+  line-height:20px;
+  text-align: center;
+  background: #F89406;
+  color:#fff;
+  float:right;
+  margin-top:7px;
+  margin-right:20px;
+  padding:3px 10px; 
+  border-radius: 3px;
+}
+.content .greenhouse .greenhouse-content{
+    height:280px; 
+}
+.content .greenhouse .greenhouse-content .box-table{
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+}
+.content .greenhouse .greenhouse-content table{
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 1em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top:20px;
+    border-collapse:collapse 
+}
+.content .greenhouse .greenhouse-content table td{
+    border-top: 1px solid #ccc;  
+    padding-top:15px;
+    color: #555;
+}
+.content .greenhouse .greenhouse-content a{
+    display: block;
+    margin-left: 23px;
+    margin-top: 35px;
+    color:#3488DC;
+}
+/*--场地明细--*/
+/*系统信息*/
+.content .system-description{
+    border: 1px solid #CCCCCC;
+    float: right;
+    width: 48%;
+    margin-top: 20px;
+    /*margin:20px 20px 0px 10px;*/
+}
+.content .system-description .system-2{
+    display: none;
+}
+.content .system-description .system-description-content{
+    height:280px; 
+}
+.content .system-description .system-description-content h1{
+    padding:5px;
+    padding-left: 10px;
+    font-weight: bold;
+    letter-spacing:3px;
+    font-size: 28px;
+}
+.content .system-description .system-description-content p{
+    padding:5px 10px;
+    font-size: 16px;
+    color:#555;
+}
+.content .system-description .system-description-content p span{
+    color:#3488DC;
+}
+/*--系统信息--*/

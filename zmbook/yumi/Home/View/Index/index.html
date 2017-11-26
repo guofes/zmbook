@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="keywords" content="华中农业大学,生命科学学院,玉米团队,温室,预定系统">
+<meta name="description" content="华中农业大学玉米温室预定系统-管理和规划玉米温室,更好地促进团队发展">
+<meta name="copyright" content="生命科学学院">
+<meta name="revised" content="零度, 5/3/2017"/>
+<title>玉米温室预定系统</title>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/index.css">
+<link rel="shortcut icon" href="__PUBLIC__/Images/ico.png" type="image/x-icon" />
+</head>
+<body>
+ <div class="loading">
+   <div class="progress"></div>
+ </div>
+
+<div class="container">
+<assign name="user" value="$Think.session.username"/>
+<div class="h1"><span class="h2">华中农业大学玉米温室预定系统</span>
+     <span class="h3">欢迎你:{$user}同学! <a href="{:U('Student/student')}">个人中心</a> <a href="__URL__/logout">退出系统</a> </span>
+</div>
+
+<div class="rightmarquee">
+<marquee class="rules" direction="up"  scrollamount="1" behavior="alternate" onMouseOut="this.start()" onMouseOver="this.stop()">
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <h3>温室管理章程:</h3>
+  <p>1、根据研究人员的要求，做好温室的温，光，气的要求，特别是夏天遮阳网的遮与揭，平时通风需求。</p>
+  <p>2、根据科研需要，调节好植物生长需要的温度、湿度。</p>
+  <p>3、下班前认真检查门窗，水、电、气设置是否符合实验要求。</p>
+  <p>4、做好温室的定期消毒与病虫害的预防工作。<p>
+  <p>5、做好温室房面玻璃的定期清洗，保证透光率。</p>
+  <p>6、确保温室锅炉正常工作，并做好应急措施的准备工作。</p>
+  <p>7、进出温室的工作人员要严格登记，闲杂人员一律不得入内，参观人员不得触摸实验苗木及重要设施。</p>
+  <p>8、保持温室整洁，不得堆放杂物（土壤标本定点放置自行保管）。</p>
+  <p>9、需进入温室实验的盆栽项目必须提前预约，由温室管理人员合理安排。</p>
+  <p>10、温室设施实行有偿使用（收费标准另定）。</p>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+</marquee> 
+
+<marquee class="news"  direction="up" scrollamount="1" behavior="alternate" onMouseOut="this.start()" onMouseOver="this.stop()">
+  <h3>通知:</h3>
+  <volist name="clear_info" id="clear">
+      {$clear.booking_student}同学,
+  </volist>
+  <empty name="clear">
+     暂无
+   <else/>
+     请及时清场!
+  </empty>
+
+</marquee>
+</div> <!-- rightmarquee -->
+
+<div class="info">
+ <p>没有预订的土地:</p><div class="state0"></div><br/><br/>
+  <p>正在审核的土地:</p><div class="state1"></div><br/><br/>
+   <p>正在使用的土地:</p><div class="state2"></div><br/><br/>
+</div>
+
+<div class="left-img">
+  <img src="__PUBLIC__/images/yumi1.png">
+</div>
+<div class="right-img">
+  <img src="__PUBLIC__/images/yumi1.png">
+</div>
+<div class="total">
+  <div class="head" type="fixed">
+  <p class="headname">玉米地I</p>
+  <p class="headname" style="margin-bottom:90px;font-size:20px">(仅接受邮件预定)</p>
+  <div class='landinfo'>
+     <p>责任老师:代明球</p>
+     <table class="landinfo_table">
+     <tr>
+        <th>使用人</th>
+        <th>课题组</th>
+        <th>使用行数</th>
+        <th>使用时间</th>
+     </tr>
+     <volist name="corn" id='corn_vo'>
+       <if condition="$corn_vo.corn eq 1">
+        <tr>
+           <td>{$corn_vo.user}</td>
+           <td>{$corn_vo.project}</td>
+           <td>{$corn_vo.line}</td>
+           <td>{$corn_vo.date2}~{$corn_vo.date2}</td>
+        </tr>
+      </if>
+     </volist>  
+     </table> 
+  </div>
+  </div>
+   <div class="electric-box">
+       <div class="electric">
+           <p>电</p>
+       </div>
+   </div> 
+    <div class="content-box">
+       <table class="table1">
+        <tr>
+            <td style="width:80px;height:60px;background:#666;"
+            class="fixed" type="fixed">
+                <p>暖</p>
+                <div class='landinfo'>
+                 <p>责任老师:代明球</p>
+               </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:100px;height:100px;background:#666;" class="fixed" type="fixed" >
+               <p>棚2</p>
+               <div class='landinfo'>
+                 <p>责任老师:代明球</p>
+                 <p>使用课题组:玉米团队</p>
+              </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:100px;height:50px;background:#666;" class="fixed" type="fixed">
+               <p>房5</p>
+               <div class='landinfo'>
+                 <p>责任老师:杨芳</p>
+                 <p>使用课题组:<br/>
+                    杨芳组<br/>
+                    张东方组
+                 </p>
+               </div>
+            </td>
+        </tr>
+        <tr>
+            <td  style="width:100px;height:50px;background:#666;" class="fixed" type="fixed">
+               <p>房4</p>
+               <div class='landinfo'>
+                 <p>责任老师:赖志兵</p>
+                 <p>使用课题组:<br/>
+                    代明球组<br/>
+                    赖志兵组<br/>
+                    岳兵组
+                 </p>
+               </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:100px;height:150px;background:#359D3E;" index="1" choose="0"><p>晒场</p></td>
+        </tr>
+
+    </table>
+    <!-- ①②③④⑤⑥⑦⑧⑨⑩ -->
+    <table class="table2">
+        <caption>加温温室</caption>
+        <tr>
+            <td>
+            <div class="caption">1号</div>
+            <table class="table2-child" cellspacing="0">             
+              <td index="2"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="3"><p>②</p></td>
+            </table>
+            </td>
+
+            <td>
+            <div class="caption">2号</div>
+            <table class="table2-child" cellspacing="0">
+              <td index="4"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="5"><p>②</p></td>
+            </table>
+            </td>
+
+            <td>
+            <div class="caption">3号</div>
+            <table class="table2-child" cellspacing="0">
+              <td index="6"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="7"><p>②</p></td>
+            </table>
+            </td>
+
+            <td>
+            <div class="caption">4号</div>
+            <table class="table2-child" cellspacing="0">
+              <td index="8"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="9"><p>②</p></td>
+            </table>
+            </td>
+
+            <td>
+            <div class="caption">5号</div>
+            <table class="table2-child" cellspacing="0">
+              <td index="10"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="11"><p>②</p></td>
+            </table>
+            </td>
+
+            <td>
+            <div class="caption">6号</div>
+            <table class="table2-child" cellspacing="0">
+              <td index="12"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="13"><p>②</p></td>
+            </table>
+            </td>
+
+            <td>
+            <div class="caption">7号</div>
+            <table class="table2-child" cellspacing="0">
+              <td index="14"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="15"><p>②</p></td>
+            </table>
+            </td>
+
+            <td>
+            <div class="caption">8号</div>
+            <table class="table2-child" cellspacing="0">
+              <td index="16"><p>①</p></td>
+            </table>
+            <table class="table2-child" cellspacing="0">
+              <td index="17"><p>②</p></td>
+            </table>
+            </td>
+       </tr>     
+    </table>
+
+    <table class="table3">
+        <caption>干旱温棚</caption>
+        <tr>
+            <td style="width:120px;height:80px;" index="18"><p>A</p></td>
+            <td style="width:120px;height:80px;" index="19"><p>B</p></td>
+            <td style="width:70px;height:80px;background:#666;" type="fixed"></td>
+            <td style="width:160px;height:80px;" index="20"><p>E</p></td>
+            <td style="width:160px;height:80px;" index="21"><p>G</p></td>
+        </tr>
+        <tr>
+            <td style="width:130px;height:80px;" index="22"><p>C</p></td>
+            <td style="width:120px;height:80px;" index="23"><p>D</p></td>
+            <td style="width:70px;height:80px;background:#666;" type="fixed"></td>
+            <td style="width:160px;height:80px;" index="24"><p>F</p></td>
+            <td style="width:160px;height:80px;" index="25"><p>H</p></td>
+        </tr>
+    </table>
+    
+    <table class="table4">
+        <caption>日光温棚</caption>
+        <tr>
+            <td style="width:160px;height:160px;" >
+              <div class="caption">1区</div>
+            <table class="table2-child" cellspacing="1">
+              <td index="27"><p>①</p></td>
+              <td index="28"><p>②</p></td>
+            </table>
+            <table class="table2-child" cellspacing="1">
+              <td index="29"><p>③</p></td>
+              <td index="30"><p>④</p></td>
+            </table>
+            </td>
+            <td style="width:160px;height:160px;">
+              <div class="caption">2区</div>
+            <table class="table2-child" cellspacing="1">
+              <td index="31"><p>①</p></td>
+              <td index="32"><p>②</p></td>
+            </table>
+            <table class="table2-child" cellspacing="1">
+              <td index="33"><p>③</p></td>
+              <td index="34"><p>④</p></td>
+            </table>
+            </td>
+            <td style="width:160px;height:160px;">
+              <div class="caption">3区</div>
+            <table class="table2-child" cellspacing="1">
+              <td index="35"><p>①</p></td>
+              <td index="36"><p>②</p></td>
+            </table>
+            <table class="table2-child" cellspacing="1">
+              <td index="37"><p>③</p></td>
+              <td index="38"><p>④</p></td>
+            </table>
+            </td>
+            <td style="width:160px;height:160px;">
+              <div class="caption">4区</div>
+            <table class="table2-child" cellspacing="1">
+              <td index="39"><p>①</p></td>
+              <td index="40"><p>②</p></td>
+            </table>
+            <table class="table2-child" cellspacing="1">
+              <td index="41"><p>③</p></td>
+              <td index="42"><p>④</p></td>
+            </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="height:50px;background:#666;" colspan="4" type="fixed"><p>过道（可适当利用）</p></td>
+        </tr>
+        <tr>
+            <td style="width:160px;height:240px;">
+              <div class="caption">5区</div>
+            <table class="table3-child" cellspacing="1">
+              <td index="43"><p>①</p></td>
+              <td index="44"><p>②</p></td>
+            </table>
+            <table class="table3-child" cellspacing="1">
+              <td index="45"><p>③</p></td>
+              <td index="46"><p>④</p></td>
+            </table>
+            </td>
+
+            <td style="width:160px;height:240px;">
+            <div class="caption">6区</div>
+            <table class="table3-child" cellspacing="1">
+              <td index="47"><p>①</p></td>
+              <td index="48"><p>②</p></td>
+            </table>
+            <table class="table3-child" cellspacing="1">
+              <td index="49"><p>③</p></td>
+              <td index="50"><p>④</p></td>
+            </table>
+            </td>
+
+            <td style="width:160px;height:240px;">
+            <div class="caption">7区</div>
+            <table class="table3-child" cellspacing="1">
+              <td index="51"><p>①</p></td>
+              <td index="52"><p>②</p></td>
+            </table>
+            <table class="table3-child" cellspacing="1">
+              <td index="53"><p>③</p></td>
+              <td index="54"><p>④</p></td>
+            </table>
+            </td>
+
+            <td style="width:160px;height:240px;">
+            <div class="caption">8区</div>
+            <table class="table3-child" cellspacing="1">
+              <td index="55"><p>①</p></td>
+              <td index="56"><p>②</p></td>
+            </table>
+            <table class="table3-child" cellspacing="1">
+              <td index="57"><p>③</p></td>
+              <td index="58"><p>④</p></td>
+            </table>
+            </td>
+            </td>
+        </tr>
+    </table>
+
+    <table class="table5">
+        <tr>
+            <td style="width:50px;height:100px;" colspan="2" index="26"><p>棚1</p></td>
+        </tr>
+        <tr>
+            <td style="width:50px;height:50px;background:#666" colspan="2" class="fixed" type="fixed">
+             <p>门卫3</p>
+             <div class='landinfo'>
+                 <p>责任人:门卫</p>
+             </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50px;height:50px;background:#666" colspan="2" class="fixed" type="fixed">
+              <p>房2</p>
+              <div class='landinfo'>
+                 <p>责任老师:邱法展</p>
+                 <p>使用课题组:<br/>
+                    邱法展组<br/>
+                    张祖新组
+                 </p>
+               </div>
+            </td>
+        </tr>
+        <tr>
+            <td  style="width:50px;height:50px;background:#666" colspan="2" class="fixed" type="fixed">
+              <p>房1</p>
+              <div class='landinfo'>
+                 <p>责任老师:严建兵</p>
+                 <p>使用课题组:<br/>
+                    严建兵组<br/>
+                    李林组<br/>
+                    李青组
+                 </p>
+               </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50px;height:50px;background:#666" class="fixed" type="fixed">
+             <p>房1</p>
+             <div class='landinfo'>
+                 <p>责任老师:严建兵</p>
+                 <p>使用课题组:<br/>
+                    严建兵组<br/>
+                    李林组<br/>
+                    李青组
+                 </p>
+               </div>
+            </td>
+            <td style="width:50px;height:50px;background:#666" class="fixed" type="fixed">
+              <p>厕所</p>
+              <div class='landinfo'>
+                 <p>责任人:门卫</p>
+               </div>
+            </td>
+        </tr>
+
+    </table> 
+    </div>
+    <div class="footer" type="fixed">
+        <p class="footname">玉米地II</p>
+    <p class="footname" style="margin-bottom:90px;font-size:20px">(仅接受邮件预定)</p>
+         <div class='landinfo'>
+           <p>责任老师:代明球</p>
+           <table class="landinfo_table">
+           <tr>
+              <th>使用人</th>
+              <th>课题组</th>
+              <th>使用行数</th>
+              <th>使用时间</th>
+           </tr>
+           <volist name="corn" id='corn_vo'>
+             <if condition="$corn_vo.corn eq 2">
+              <tr>
+                 <td>{$corn_vo.user}</td>
+                 <td>{$corn_vo.project}</td>
+                 <td>{$corn_vo.line}</td>
+                 <td>{$corn_vo.date1}~{$corn_vo.date2}</td>
+              </tr>
+            </if>
+           </volist>  
+           </table> 
+         </div>
+    </div>
+</div>
+
+<div class="formSubmit">
+ <div class="formhead">
+     <p>-----------------提交-----------------</p>
+ </div>
+    <form name="addForm" method="post" action="{:U('Index/form')}">
+      <div class="form-item"><p class="choose">您已选择的温室部位:</p></div>
+      <div class="form-item">
+         <p>您所属于的课题组:</p>
+         <assign name="project">
+            <p class="project">{$project}</p>
+            <input  type="hidden" name="project" value="{$project}" />
+         </assign>
+      </div>
+      <div class="form-item">
+         <p>您计划使用时间:</p>
+         <input class="timeinput" id='mydatepicker' name="book_time" type='text'/>
+         <p class="bechoose">到</p>
+         <input class="timeinput" id='mydatepicker1' name="end_time" type='text'/>   
+      </div>
+      <div class="form-item">
+         <p>时间段:</p><p class="form-time"></p>
+         <input class="submit-time" type="hidden" name="time"/>  
+      </div>
+         <p style="margin-top:10px;margin-left:-440px;">（以半个月(十五天)为基本单位,不足十五天按十五天计算）</p>
+      <div class="form-item">
+         <p>实验内容简单描述:</p>
+         <textarea name="content"></textarea>
+      </div>
+      <button type="submit" onsubmit="return checkPost();">提交申请</button>
+      <input class="ajax_href" type="hidden" value="{:U('Index/placeState')}"/>
+    </form>
+</div>
+</div>
+</body>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script type="text/javascript" src="__HOME__/js/index.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/timemaster/dcalendar.picker.css"/>           
+<script type="text/javascript" src="__PUBLIC__/timemaster/dcalendar.picker.js"></script> 
+</html> 

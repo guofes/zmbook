@@ -1,0 +1,104 @@
+<include file="Public:head"/>
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/admin_list.css">
+<script>
+
+ $(document).ready(function(){
+	$(".i-del").click(function(){
+        var id =  $(this).parents('tr').children('.id').text();
+       $("#mask").show(10);
+       $("#box").show(100);
+       $("#close").click(function(){
+       $("#mask").hide(0);
+       $("#box").hide(0);
+       });
+       $(".no").click(function(){
+       $("#mask").hide(0);
+       $("#box").hide(0);
+       });
+       $(".sure").click(function(){
+      $.ajax({
+            url:"__CONTROLLER__/user_del",
+            data:{id:id},
+            dataType:"TEXT",
+            type:"POST",
+            success: function(data){      
+            $("#mask").hide(0);
+            $("#box").hide(0);
+            if(data=="删除成功"){
+              alert(data);
+            window.location.href = "{:U("Corn/index")}";
+            }
+            else{  
+            alert("出现未知错误!");            
+            }        
+            }
+        });
+       });
+    });
+});
+</script>
+<div class="content">
+    <div class="header" id="header">
+        <p>温棚审核
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>玉米地使用者
+        </small>
+        </p>
+    </div>
+    <div class="form-button">
+        <div class="button-btn button-href">
+        <a class="btn-p" href="{:U("Corn/user_add")}"><i class="menu-icon fa fa-plus"></i>&nbsp&nbsp添加使用者</a>           
+        </div>
+        <div class="button-2">           
+        </div>
+        <div class="button-3">           
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="tutortable" id="tutortable">
+    <table>
+                <thead>
+                    <th># </th>
+                    <th>使用人</th>
+                    <th>研究课题</th>
+                    <th>使用行数</th>
+                    <th>使用时间</th>
+                    <th>土地</th>
+                </thead>
+
+             <volist name="data" id="vo" >
+                <tr>
+                    <td class="id">{$vo.id}</td>
+                    <td>{$vo.user}</td>
+                    <td>{$vo.project}</td>
+                    <td>{$vo.line}</td>
+                    <td>{$vo.date1}~{$vo.date1}</td>
+                    <td>玉米地{$vo.corn}</td>
+                    <td class="drow">
+                    <i class="menu-icon fa fa-close i-del"></i></td>
+                </tr>
+            </volist>
+    </table>
+             <div class="page">
+            <div class="allactivity_page">{$page}</div>
+            </div>   
+    </div>
+</div>
+<div class="footer" id="footer">
+   <p><span>LD•CMF</span> 后台管理系统 © 2016-2017 </p>
+</div>
+<div id="mask"></div>
+<div id="box">
+<div class="phead">
+    <p>删除提醒</p>
+</div>
+<div class="delcontent">
+    <i class="ace-icon fa fa-exclamation-triangle fa-3x"></i><span>确定要删除该使用者吗？</span>
+</div>
+<div class="delfoot">
+    <button class="sure">确定</button>
+    <button class="no">取消</button>
+</div>
+<div id='close'></div>
+</div>
+ 

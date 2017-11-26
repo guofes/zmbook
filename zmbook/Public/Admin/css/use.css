@@ -1,0 +1,208 @@
+body{
+    position: relative;
+    width:100%;
+    padding:0px;
+    text-align: center;
+}
+.total{
+    margin: 0px auto;
+    width: 980px;
+    background:rgba(255,255,255,0.5);
+    border:1px solid #0D0D0D;
+}
+.yumi1{
+    position: relative;
+    background:#359D3E;
+    width: 900px;
+    height: 300px;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+.headname{
+    height: 30px;
+    position: absolute;
+    margin: auto;  
+    top: 0; left: 0; bottom: 0; right: 0; 
+    font-size:30px;
+    font-color:#eee;
+}
+.electric-box{
+    position: absolute;
+    top:220px;
+    background:white;
+    width: 100px;
+    height: 140px;
+}
+.electric-box .electric{
+    background: #17375E;
+    width: 80px;
+    height: 100px; 
+    margin:12px auto;
+}
+.electric-box .electric p{
+    font-size:20px;
+    padding-top: 40px;
+}
+.content-box{
+    margin-top: 40px;
+    width: 940px;
+    height:1000px;
+}
+
+/*四个表格的样式*/
+.caption{
+    background: #cccCFF;
+    line-height: 30px; 
+    color: #666;
+    font-family: 微软雅黑;
+    font-size:20px;
+    font-weight: 700;
+    letter-spacing: 3px
+}
+.content-box table{
+    table-layout: fixed;
+}
+.content-box .table1{
+    display: block;
+    float: left;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.content-box .table2{
+    display:block;
+    float:right;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+.table2 td{
+    width: 80px;
+    height: 160px;
+}
+.table2 caption{
+    background: #cccCFF;
+    line-height: 30px; 
+    color: #666;
+    font-family: 微软雅黑;
+    font-size:20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+.table2-child td{
+    width: 80px;
+    height: 80px;
+    border-top: 1px solid #666;
+}
+.content-box .table3{
+    float:right;
+    margin-top: 100px;
+    margin-right: 20px;
+}
+
+.content-box .table3 caption{
+    background: #cccCFF;
+    line-height: 30px;
+    font-family: 微软雅黑;
+    font-size:20px;
+    letter-spacing: 1px;
+    color: #666;
+    font-weight: 600;
+}
+
+.table3-child td{
+   width:80px;
+   height:120px;
+   border-top: 1px solid #666;
+}
+
+.content-box .table4{
+    display: block;
+    float:right;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.table4 caption{
+    background: #cccCFF;
+    line-height: 30px;
+    color: #666;
+    font-family: 微软雅黑;
+    font-size:20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+.content-box .table5{
+    display: block;
+    float:left;
+    padding-top: 100px;
+    padding-left: 20px;
+}
+
+.total .yumi2{
+    position: relative;
+    margin-top: 140px;
+    margin-bottom: 80px;
+    margin-left: 270px;
+    width: 650px;
+    height: 300px;
+    background-color: #359D3E;
+}
+.footname{
+    height: 30px;
+    position: absolute;
+    margin: auto;  
+    top: 0; left: 0; bottom: 0; right: 0; 
+    font-size:30px;
+    font-color:#eee;
+}
+
+td{
+    cursor: pointer;
+}
+
+.landinfo{
+    position:absolute;
+    width:250px;
+    background-color: #4d5b76;
+    font-family: 微软雅黑;
+    font-size: 14px;
+    z-index: 999;
+    display: none;
+    word-wrap:break-word; 
+    border: 1px solid #f4f4f4;
+}
+.yumi1 .landinfo{
+     right: 0px;
+     width:350px;
+}
+.fixed .landinfo p{
+    font-size: 16px;
+    color: #eee;
+    margin-top:10px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+.infonum p{
+    font-size: 14px;
+    color: #eee;
+}
+.landinfo div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.landinfo_table{
+     margin:5px auto;
+}
+.landinfo_table th{
+     color:#ccc;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.landinfo_table td{
+    padding-left: 10px;
+}
+
+.yumi2 .landinfo{
+     right: 0px;
+     width:350px;
+}

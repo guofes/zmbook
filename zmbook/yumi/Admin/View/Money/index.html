@@ -1,0 +1,54 @@
+<include file="Public:head"/> 
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/admin_list.css">
+<div class="content">
+    <div class="header" id="header">
+        <p>信息管理
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>费用详情
+        </small>
+        </p>
+    </div>
+    <div class="form-button">
+        <div class="button-btn button-href">
+        <p><i class="menu-icon fa fa-question-circle"></i>&nbsp&nbsp页面说明</p>           
+        </div>
+        <div class="button-2">           
+        </div>
+        <div class="button-3">           
+        </div>
+    </div>
+<div class="clear"></div>
+    <div class="tutortable" id="tutortable">
+    <table>
+                <thead>
+                    <th># </th>
+                    <th>学生</th>
+                    <th>使用次数</th>
+                    <th>总用时</th>
+                </thead>
+
+             <volist name="pa" id="vo" >
+                <tr>
+                    <td class="id">{$vo.id}</td>
+                    <td>{$vo.booking_student}</td>
+                    <td>{$vo.count(booking_student)}</td>
+                    <td class="{$vo.id}"></td>
+                    <!-- <td class="drow">
+                    <i class="menu-icon fa fa-refresh i-edit"></i>
+                    <i class="menu-icon fa fa-close i-del"></i></td> -->
+                    <script>
+                    $(".{$vo.id}").text("{$vo.sum(time)}"/2+"个月")
+                    </script>
+                </tr>
+            </volist>
+    </table>
+             <div class="page">
+            <div class="allactivity_page">{$page}</div>
+            </div>   
+    </div>
+</div>
+ </div>
+
+<div class="footer" id="footer">
+   <p><span>LD•CMF</span> 后台管理系统 © 2016-2017 </p>
+</div>

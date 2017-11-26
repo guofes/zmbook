@@ -1,0 +1,145 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    width:100%;
+    padding:0px;
+    text-align: center;
+    background: url('../../Images/bg4.jpg');
+}
+h1{
+	margin-top: 50px;
+}
+h2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+h3 a{
+	margin-left: 10px;
+    background-color: rgb(141,215,219);
+    color:#222222;
+    width: 100px;
+    text-decoration: none;
+    padding:5px 20px 5px 20px;
+    cursor: pointer;
+}
+.left-img{
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	left: 0px;
+}
+.right-img{
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	right:0px;
+}
+.info{
+	width: 1070px;
+	height: 344px;
+	margin:50px auto;
+	background:rgba(255,255,255,0.5);
+    border:1px solid #0D0D0D;
+}
+#clear_a{
+	font-size: 20px;
+	color: red;
+	cursor: pointer;
+}
+thead tr{background-color:rgba(243,134,48,0.4) !important;}
+tr:nth-child(odd)		{ background-color:rgba(172,216,254,1); }
+tr:nth-child(even)		{ background-color:rgba(218,219,237,1); }
+
+table{
+	border-spacing: 0;
+	width:100%;
+}
+.form_content{
+   cursor: pointer;
+}
+table p{
+	text-overflow:ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#mask{
+    background: #000;
+    opacity: 0.75;
+    filter:alpha(opacity=75);/*兼容IE*/
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: none;
+}
+#box{
+    font-family:  "lucida Grande",Verdana,"Microsoft YaHei";
+    width: 360px;
+    height: 220px;
+    position:fixed;
+    left:0; right:0;
+    top:30%;
+    margin:0 auto;
+    z-index: 100;
+    background:#ffffff; 
+    display:none;
+    border-bottom-left-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+.box-form-row{
+	float: right;
+	margin-top: 10px;
+}
+
+.box-form-row input{
+	width: 150px;
+	height: 25px;
+	float: right;
+	margin-right: 60px;
+	font-size: 18px;
+}
+.box-button-row{
+	float: right;
+	margin-top: 10px;
+}
+.box-button-row input{
+	width: 100px;
+	height: 30px;
+	background-color: #00BCD4;
+	border: none;
+	margin-right: 50px;
+	float: right;
+	cursor: pointer;
+	font-size: 18px;
+	font-family: 微软雅黑;
+}
+
+.box-button-row a{
+	width: 100px;
+	height: 30px;
+	cursor: pointer;
+	line-height: 30px;
+	float: right;
+	margin-right: 50px;
+	background-color: #00BCD4;
+	border: none;
+	font-size: 18px;
+}
+
+
+#box h3{
+	margin-top: 10px;
+}

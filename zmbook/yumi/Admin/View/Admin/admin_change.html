@@ -1,0 +1,75 @@
+<include file="Public:head"/>
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/admin.css">
+<script>
+     $(document).ready(function(){
+        $("#admin_edit").click(function(){
+            var admin_name = $(".admin_name").val();
+            var id = $(".aid").text();
+            var admin_email = $(".admin_email").val();
+            var project = $(".project").val();
+            // alert("11");
+        $.ajax({
+            url:"__CONTROLLER__/admin_update",
+            data:{id:id,admin_name:admin_name,admin_email:admin_email,project:project},
+            dataType:"TEXT",
+            type:"POST",
+            success: function(data){
+            alert(data);
+            if(data =="修改成功"){
+             window.location.href = "{:U("Admin/admin_list")}";
+            }
+            }
+        });
+        });
+  });    
+</script>
+<div class="content">
+    <div class="header" id="header">
+        <p>超级管理员
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>修改导师信息
+        </small>
+        </p>
+    </div>
+    <div class="form-button">
+        <div class="button-btn button-href">
+        <p class="btn-p"><i class="menu-icon fa fa-question-circle"></i>&nbsp&nbsp页面说明</p>           
+        </div>
+        <div class="button-2">           
+        </div>
+        <div class="button-3">           
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="tutormessage" style="height:400px" id="tutormessage">
+        <div class="tutor-message tutor-menu">
+        <p>信息</p></div>
+        <div class="clear"></div>
+        <div class="tutor-message-content">
+    <form action="" enctype="multipart/form-data" method="post">
+        <p class="aid" style="display:none">{$data.id}</p>
+        <label>姓名</label>
+        <input type="text" value="{$data.admin_name}" class="admin_name" required>
+        <label>邮箱</label>
+        <input type="email" value="{$data.admin_email}" class="admin_email" required>
+        <label>课题组</label>
+        <input type="text" value="{$data.project}" class="project" required>
+        <button class="button-btn btn-submit" id="admin_edit" type="button">
+            <i class="ace-icon fa fa-check bigger-110"></i>
+            修改
+        </button>
+        <button class="button-btn btn-reset" type="reset">
+            <i class="ace-icon fa fa-undo bigger-110"></i>重置
+        </button>
+    </form>
+        
+        </div>
+    </div>
+</div>
+<div class="footer" id="footer">
+   <p><span>LD•CMF</span> 后台管理系统 © 2016-2017 </p>
+</div>
+<div id="explain">
+   <span class="explain_close"><i class="menu-icon fa fa-close"></i></span>
+    <p>确认信息的完整性，真实性</p>
+</div>

@@ -1,0 +1,81 @@
+<include file="Public:head"/>
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/admin.css">
+<script>
+     $(document).ready(function(){
+        $("#admin_add").click(function(){
+            var admin_name = $(".admin_name").val();
+            var admin_email = $(".admin_email").val();
+            var admin_password = $(".admin_password").val();
+            var adminpassword = $(".adminpassword").val();
+            var project = $(".project").val();
+            var power = $(".power").val();
+        $.ajax({
+            url:"__CONTROLLER__/adminadd",
+            data:{admin_name:admin_name,admin_email:admin_email,admin_password:admin_password,adminpassword:adminpassword,project:project,power:power},
+            dataType:"TEXT",
+            type:"POST",
+            success: function(data){
+            alert(data);
+            if(data =="注册成功"){
+             window.location.href = "{:U("Admin/admin_list")}";
+            }
+            }
+        });
+        });
+  });    
+</script>
+<div class="content">
+    <div class="header" id="header">
+        <p>超级管理员
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>添加导师
+        </small>
+        </p>
+    </div>
+    <div class="form-button">
+        <div class="button-btn button-href">
+        <p class="btn-p"><i class="menu-icon fa fa-question-circle"></i>&nbsp&nbsp页面说明</p>           
+        </div>
+        <div class="button-2">           
+        </div>
+        <div class="button-3">           
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="tutormessage" style="height:550px" id="tutormessage">
+        <div class="tutor-message tutor-menu">
+        <p>填写信息</p></div>
+        <div class="clear"></div>
+        <div class="tutor-message-content">
+    <form action="" enctype="multipart/form-data" method="post">
+        <label>姓名</label>
+        <input type="text" value="" class="admin_name" required>
+        <label>邮箱</label>
+        <input type="email" value="" class="admin_email" required>
+        <label>密码</label>
+        <input type="password" value="" class="admin_password" required>
+        <label>确认密码</label>
+        <input type="password" value="" class="adminpassword">
+        <label>课题组</label>
+        <input type="text" value="" class="project" required>
+        <label>管理员级别</label>
+        <input type="text" value="普通管理员" readonly="readonly" class="power" required>
+        <button class="button-btn btn-submit" id="admin_add" type="button">
+            <i class="ace-icon fa fa-check bigger-110"></i>
+            添加
+        </button>
+        <button class="button-btn btn-reset" type="reset">
+            <i class="ace-icon fa fa-undo bigger-110"></i>重置
+        </button>
+    </form>
+        
+        </div>
+    </div>
+</div>
+<div class="footer" id="footer">
+   <p><span>LD•CMF</span> 后台管理系统 © 2016-2017 </p>
+</div>
+<div id="explain">
+   <span class="explain_close"><i class="menu-icon fa fa-close"></i></span>
+    <p>确认信息的完整性，真实性</p>
+</div>

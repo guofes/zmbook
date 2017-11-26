@@ -1,0 +1,196 @@
+<include file="Public:head"/>
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/admin_list.css">
+<script>
+$(document).ready(function(){
+    $(".project").mouseover(function(){
+  $(this).children(".project-content").show();
+});
+   $(".project").mouseout(function(){ 
+  $(this).children(".project-content").hide();
+}); 
+    $(".i-del").click(function(){
+        var id =  $(this).parents('tr').children('.id').text();
+       // alert(id);
+       $("#mask").show(10);
+       $("#box").show(100);
+       $("#close").click(function(){
+       $("#mask").hide(0);
+       $("#box").hide(0);
+       });
+       $(".no").click(function(){
+       $("#mask").hide(0);
+       $("#box").hide(0);
+       });
+       $(".sure").click(function(){
+      $.ajax({
+            url:"__CONTROLLER__/form_del",
+            data:{id:id},
+            dataType:"TEXT",
+            type:"POST",
+            success: function(data){      
+            $("#mask").hide(0);
+            $("#box").hide(0);
+            alert(data);
+            window.location.href = "{:U("Forms/form_st1")}";         
+            }
+        });
+       });
+    });
+
+    $(".activation").click(function(){
+        var qwe = $(this).children('.activationn');
+        var fid =  $(this).parents('tr').children('.id').text();
+        var form_state = $(this).children().children(".form_state").text();
+        // alert();
+       if(form_state == 1){
+        alert("请等待超级管理员确认！");
+       }if(form_state == 2){
+        alert("已通过申请！")
+       }
+        if(form_state == 3){
+        alert("已过使用期！")
+       }
+        if(form_state == 0){
+       $("#mask").show(10);
+       $("#box2").show(100);
+       $("#close2").click(function(){
+       $("#mask").hide(0);
+       $("#box2").hide(0);
+       });
+       $(".editno").click(function(){
+       $("#mask").hide(0);
+       $("#box2").hide(0);
+       });
+       $(".editsure").click(function(){
+      $.ajax({
+            url:"__CONTROLLER__/from_activation",
+            data:{fid:fid},
+            dataType:"TEXT",
+            type:"POST",
+            success: function(data){   
+            $("#mask").hide(0);
+            $("#box2").hide(0);
+            alert(data);
+            // if(data==1){
+            // window.location.href = "{:U("Forms/form_st1")}"; 
+            location.reload();   
+            // alert(data);
+            // }        
+            }
+        });
+       });
+       }
+    });
+    });
+</script>
+<div class="content">
+    <div class="header" id="header">
+        <p>温棚审核
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>待审核
+        </small>
+        </p>
+    </div> 
+    <div class="form-button">
+        <div class="button-btn button-href">
+        <p class="btn-p"><i class="menu-icon fa fa-question-circle"></i>&nbsp&nbsp页面说明</p>           
+        </div>
+        <div class="button-2">           
+        </div>
+        <div class="button-3">           
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="tutortable" id="tutortable">
+    <table>
+                <thead>
+                    <th>#</th>
+                    <th>温棚</th>
+                    <th>学生</th>
+                    <th  style="display:none;">导师</th>
+                    <th>课题</th>
+                    <th>使用时间</th>
+                    <th>提交时间</th>                    
+                    <th>激活</th>
+                    <th>操作</th>
+                </thead>
+                <volist name="data" id="a">
+                <tr>
+                    <td class="id">{$a.id}</td>
+                    <td>{$a.landname}</td>
+                    <td>{$a.booking_student}</td> 
+                    <td class="project">{$a.project}
+                    <div class="project-content">
+                    <h4>课题内容</h4>
+                        <p>{$a.content}</p>
+                    </div></td>
+                    <td>{$a.book_time}~{$a.end_time}</td>
+                    <td>{$a.sub_time}</td>
+                    <td>
+                    <div class="activation">
+                    <div class="activationn {$a.id}" style="background:#f8f8f8" >
+                    <span class="form_state" style="display:none">{$a.form_state}</span>
+                    </div>
+                    <script>
+                       if({$a.form_state}==1){
+                       $(".{$a.id}").css("background","#0088CC");
+                      }if({$a.form_state}==2){
+                       $(".{$a.id}").css("background","#00fd47");
+                      }if({$a.form_state}==3){
+                       $(".{$a.id}").css("background","#000");
+                      }
+                      </script> 
+                     </div>
+                      </td>
+                    <td  class="drow" style="text-align:left">
+                    <i class="menu-icon fa fa-close i-del"></i></td>
+                </tr>
+             </volist>   
+    </table>
+             <div class="page">
+            <div class="allactivity_page">{$page}</div>
+            </div>   
+    </div>
+</div>
+<div class="footer" id="footer">
+   <p><span>LD•CMF</span> 后台管理系统 © 2016-2017 </p>
+</div>
+
+
+<div id="mask"></div>
+<div id="box">
+<div class="phead">
+    <p>申请删除</p>
+</div>
+<div class="delcontent">
+    <i class="ace-icon fa fa-exclamation-triangle fa-3x"></i><span>确定将该学生的申请删除吗</span>
+</div>
+<div class="delfoot">
+    <button class="sure">确定</button>
+    <button class="no">取消</button>
+</div>
+<div id='close'></div>
+</div>
+
+<div id="box2">
+<div class="phead">
+    <p>审核通过</p>
+</div>
+<div class="editcontent">
+    <i class="ace-icon fa fa-paper-plane-o fa-3x"></i><span>是否通过该学生的场地申请</span>
+</div>
+<div class="editfoot">
+    <button class="editsure">确定</button>
+    <button class="editno">取消</button>
+</div>
+<div id='close2'></div>
+</div>
+<div id="explain">
+   <span class="explain_close"><i class="menu-icon fa fa-close"></i></span>
+    <p>灰色：提交后待导师一级审核</p>
+    <p>蓝色：导师审核通过</p>
+    <p>绿色：超级管理员审核通过</p>
+    <p>黑色：有效过期表单</p>
+    <br>
+    <p>请不要随意删除绿色状态栏和黑色数据栏，避免造成后台数据混乱</p>
+</div>

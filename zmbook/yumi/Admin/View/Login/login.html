@@ -1,0 +1,70 @@
+ <!DOCTYPE html> 
+<html>  
+<head>
+<title>登录</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- <meta name="keywords" content="Flat Dark Web Login Form Responsive Templates, Iphone Widget Template, Smartphone login forms,Login form, Widget Template, Responsive Templates, a Ipad 404 Templates, Flat Responsive Templates" /> -->
+<script src="__PUBLIC__/Admin/js/jquery.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/font-awesome/css/font-awesome.min.css">
+<link rel="shortcut icon" href="__PUBLIC__/Images/admin_ico.png" type="image/x-icon" />
+<script src="__PUBLIC__/Admin/js/button.js" type="text/javascript"></script>
+<link href="__PUBLIC__/Admin/css/theme.css" rel='stylesheet' type='text/css'> 
+<link href="__PUBLIC__/Admin/css/login.css" rel='stylesheet' type='text/css'> 
+</head>
+<script>
+    $(document).ready(function(){
+        $(".forget").click(function(){
+            alert("请联系超级管理员！！！");
+          });  
+        $(".button-btn").click(function(){
+            var admin_email = $(".admin_email").val();
+            var admin_password = $(".admin_password").val();
+        $.ajax({
+            url:"__CONTROLLER__/login_login",
+            data:{admin_email:admin_email,admin_password:admin_password},
+            dataType:"TEXT",
+            type:"POST",
+            success: function(data){
+            if(data =="登录成功"){
+             window.location.href = "{:U("Index/index")}";
+            }
+            else{alert(data);}
+            }
+        });
+        });
+        $("input").keydown(function(event){
+            if(event.keyCode==13){
+        $(".button-btn").click()
+        }
+    }); 
+});
+</script>
+<body>
+<div id="head">
+    <div class="head">      
+          <a class="brand" href="index.html"><span class="first">玉米</span> <span class="second">&nbsp温室 </span></a>   
+    </div>
+</div>
+<div class="admin_login">
+<div class="login_head">
+   <p>登录</p> 
+</div> 
+<form action="" enctype="multipart/form-data" method="post">
+        <label>邮箱</label>
+        <input type="text" value="" class="admin_email" required>
+        <label>密码</label>
+        <input type="password" value="" class="admin_password" required>
+        <!-- <label class=""><input type="checkbox"><p>记住密码</p></label> --> 
+        <div class="i-email"><i class="ace-icon fa fa-envelope"></i></div>
+        <div class="i-lock"><i class="ace-icon fa fa-envira"></i></div>
+        <span class="forget">忘记密码？</span>
+        <button class="button-btn" type="button">登录</button>
+</form>
+</div>
+
+
+
+</body>
+</html>

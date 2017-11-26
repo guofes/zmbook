@@ -1,0 +1,98 @@
+input[type=checkbox] {
+	visibility: hidden;
+}
+	.checkboxThree {
+	width: 90px;
+	height: 35px;
+	float:left;
+	background: #424A5A;
+	margin-left: 20px; 
+	border-radius: 35px;
+	position: relative;
+}
+.checkboxThree:before{
+	content: 'On';
+	position: absolute;
+	top: 7px;
+	left: 13px;
+	height: 2px;
+	color: #26ca28;
+	font-size: 16px;
+}
+/**
+ * Create the label for the off position
+ */
+.checkboxThree:after {
+	content: 'Off';
+	position: absolute;
+	top: 7px;
+	left: 54px;
+	height: 2px;
+	color: #ddd;
+	font-size: 16px;
+}
+.checkboxThree label{
+	display: block;
+	width: 32px;
+	height: 22px;
+	border-radius: 50px;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 6px;
+	z-index: 1;
+	left: 10px;
+	background: #ddd;
+}
+ 
+/**
+ * Create the checkbox event for the label
+ */
+.checkboxThree input[type=checkbox]:checked + label {
+	left: 48px;
+	background: #26ca28;
+}
+.leading table{
+    width: 210px;
+    text-align: center;
+	margin-left: 5%;
+    padding-left: 1em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top:30px;
+    border-collapse:collapse;
+    float:left;
+}
+.leading .t-two{
+	margin-left: 10%;
+}
+.leading table thead{
+	border-bottom:1px solid #ccc;
+	height: 30px;
+	line-height: 30px;
+}
+.leading table tr{
+	padding-top: 20px;
+}
+.leading table tr td{
+	height: 35px;
+	line-height: 35px;
+}
+.leading table tr td i{
+	color: #7FB661;
+	cursor: pointer;
+	transition: all .2s;	
+	-moz-transition: all .2s;	/* Firefox 4 */
+	-webkit-transition: all .2s;	/* Safari 和 Chrome */
+	-o-transition: all .2s;	/* Opera */
+}
+.leading table tr td i:hover{
+	font-size: 20px;
+	transition: all .2s;	
+	-moz-transition: all .2s;	/* Firefox 4 */
+	-webkit-transition: all .2s;	/* Safari 和 Chrome */
+	-o-transition: all .2s;	/* Opera */
+}

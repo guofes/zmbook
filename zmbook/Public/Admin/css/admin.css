@@ -1,0 +1,82 @@
+.content .tutormessage{
+    height: 380px;
+    border: 1px solid #ccc;
+    margin:10px 20px 20px 20px;
+    font-size: 14px;
+}
+.content .tutormessage .tutor-menu{
+    width: 80px;
+    height:35px;
+    float: left;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    text-align: center;
+    cursor: pointer;   
+}
+.content .tutormessage .tutor-message{
+    margin: 20px 0 0 30px;
+    background: #eeeeee;
+}
+.content .tutormessage p{
+    line-height: 35px;
+    color:#333;
+}
+.content .tutormessage .tutor-change{
+    margin: 20px 0 0 5px;
+}
+.content .tutormessage .tutor-message-content{
+    /*display: none;*/
+    border-top: 1px solid #ccc;
+    width: 95%;
+    height: 200px;
+    margin: 0 0 0 20px;
+}
+.content .tutormessage .tutor-change-content{
+    display: none;
+    border-top: 1px solid #ccc;
+    width: 95%;
+    height: 250px;
+    margin: 0 0 0 20px;
+
+}
+.content .tutormessage label{
+    display: block;
+    margin: 10px 0; 
+}
+.content .tutormessage input{
+    display: block;
+    width: 280px;
+    height: 30px;
+    padding-left: 10px;
+    background-clip: padding-box;
+    border: 1px solid #cccccc;
+    color:#333;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear .2s, box-shadow linear .2s;
+    -moz-transition: border linear .2s, box-shadow linear .2s;
+    -o-transition: border linear .2s, box-shadow linear .2s;
+    transition: border linear .2s, box-shadow linear .2s;
+}
+.content .tutormessage input:focus{
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#75B9F0,direction=120,strength=4);/*ie*/  
+    -moz-box-shadow: 0px 0px 4px #75B9F0;/*firefox*/  
+    -webkit-box-shadow: 0px 0px 4px #75B9F0;/*safari或chrome*/ 
+    -o-box-shadow: 0px 0px 4px #75B9F0;
+    -ms-box-shadow: 0px 0px 4px #75B9F0; 
+    box-shadow:0px 0px 4px #75B9F0;/*opera或ie9*/
+}
+
+.content .tutormessage button{
+    border: 1px solid #333;
+    margin-top: 20px;
+    color: #fff;
+    font-size: 14px;
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+}
+.content .tutormessage button.btn-reset{
+    margin-left: 20px;
+}

@@ -1,0 +1,88 @@
+<include file="Public:head"/>
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/admin.css">
+<script>
+    $(document).ready(function(){
+        $(".admin_passedit").click(function(){
+            var password1 = $(".password1").val();
+            var password2 = $(".password2").val();
+            var password3 = $(".password3").val();
+        $.ajax({
+            url:"__CONTROLLER__/admin_edit",
+            data:{password1:password1,password2:password2,password3:password3},
+            dataType:"TEXT",
+            type:"POST",
+            success: function(data){
+            alert(data);
+            if(data =="修改成功"){
+              window.location.href = "{:U("Admin/admin")}";
+            }
+            }
+        });
+        });
+  }); 
+</script>
+<div class="content">
+    <div class="header" id="header">
+        <p>管理员
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>个人中心
+        </small>
+        </p>
+    </div>
+    <div class="form-button">
+        <div class="button-btn button-href">
+        <p class="btn-p"><i class="menu-icon fa fa-question-circle"></i>&nbsp&nbsp页面说明</p>           
+        </div>
+        <div class="button-2222">          
+        </div>
+        <div class="button-3333">           
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="tutormessage" id="tutormessage">
+        <div class="tutor-message tutor-menu">
+        <p>导师信息</p></div>
+        <div class="tutor-change tutor-menu">
+        <p>修改密码</p></div>
+        <div class="clear"></div>
+        <div class="tutor-message-content">
+    <form id="tab">
+        <label>姓名</label>
+        <input type="text"  readonly="readonly" value="{$_SESSION['admin_name']}" class="input-xlarge">
+        <label>邮箱</label>
+        <input type="text" value="{$_SESSION['admin_email']}"  readonly="readonly" class="input-xlarge">
+        <label>课题组</label>
+        <input type="text" value="{$da}" class="input-xlarge">
+        <label>管理员级别</label>
+        <input type="text" value="{$_SESSION['power']}"  readonly="readonly" class="input-xlarge">
+        
+    </form>
+        
+        </div>
+        <div class="tutor-change-content">
+    <form id="tab-2">
+        <label>当前密码</label>
+        <input type="text" value="" class="password1">
+        <label>新密码</label>
+        <input type="password" value="" class="password2">
+        <label>确认新密码</label>
+        <input type="password" value="" class="password3">
+        <button class="button-btn btn-submit admin_passedit" type="button">
+            <i class="ace-icon fa fa-check bigger-110"></i>
+            修改
+        </button>
+        <button class="button-btn btn-reset" type="reset">
+            <i class="ace-icon fa fa-undo bigger-110"></i>重置
+        </button>
+    </form>
+            
+        </div>
+    </div>
+</div>
+<div class="footer" id="footer">
+   <p><span>LD•CMF</span> 后台管理系统 © 2016-2017 </p>
+</div>
+<div id="explain">
+   <span class="explain_close"><i class="menu-icon fa fa-close"></i></span>
+    <p>请记住密码，密码忘记联系超级管理员</p>
+</div>
